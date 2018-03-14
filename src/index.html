@@ -19,15 +19,90 @@
       <p style="text-align: center;">calebgregory@gmail.com</p>
       <p style="text-align: center;"><a href="https://github.com/calebgregory">github.com/calebgregory</a></p>
     </div>
-    <div>
-      <img src="assets/halloween.jpg" alt="Halloween" />
-      <img src="assets/DNA.jpg" alt="DNA" />
-      <img src="assets/sorrow_consulation.jpg" alt="Sorrow and Consulation" />
-      <img src="assets/septagram.jpg" alt="Septagram" />
-      <img src="assets/nature_agent.jpg" alt="Agent of Nature" />
-      <img src="assets/man.jpg" alt="Man" />
-      <img src="assets/frontier_mycologist.jpg" alt="Frontier Mycologist" />
-      <img src="assets/monday.jpg" alt="Monday" />
+    <div id="loader-container">
+      <p style="text-align: center; margin-top: 60px;">images</p>
+      <p style="text-align: center; height: 12px;">
+        <span id="loader" style="position: fixed; left: 50%; transform: translate(-50%, 0);">.</span>
+        <span id="count" style="position: fixed; left: 55%; transform: translate(-55%, 0);"></span>
+      </p>
+      <p style="text-align: center;">loading</p>
     </div>
+    <div id="image-container"></div>
+    <script>
+      // loader
+
+      var loaderContainer = document.getElementById('loader-container');
+      var loader = document.getElementById('loader');
+      var count = document.getElementById('count');
+      var glyphs = [
+        "\u03D2", "\262", "\253", "\254", "\272", "\u03A8", "\273", "\261",
+        "\260", "\263", "\320", "\246", "\u03D1", "\244", "\277", "\u039e"
+      ];
+      var glyphCount = 0;
+      var cancelLoaderId = setInterval(function() {
+        // . -> .. -> ... -> .
+        if (loader.innerText.length >= 3) {
+          loader.innerText = '.';
+          count.innerText = glyphs[glyphCount++ % glyphs.length];
+          return;
+        }
+
+        loader.innerText += '.';
+      }, 666);
+
+      function clearLoader() {
+        clearTimeout(cancelLoaderId);
+        document.getElementsByTagName('body')[0].removeChild(loaderContainer);
+      }
+
+      // images
+
+      var imgs = [
+        'halloween', 'dna', 'sorrow_and_consulation', 'septagram',
+        'agent_of_nature', 'man', 'frontier_mycologist', 'monday'
+      ];
+
+      var titles = [
+        'Halloween', 'DNA', 'Sorrow and Consulation', 'Septagram',
+        'Agent of Nature', 'Man', 'Frontier Mycologist', 'Monday'
+      ];
+
+      function imgPath (img) { return 'assets/' + img + '.jpg'; }
+
+      var imageContainer = document.getElementById('image-container');
+
+      // load each image and mount it to the DOM in order of index
+
+      var lastMounted = -1;
+      var images = {};
+
+      function mountImage(image, i) {
+        if (lastMounted < i - 1) {
+          // try again later
+          setTimeout(mountImage.bind(null, image, i), 150);
+          return;
+        }
+
+        imageContainer.appendChild(image);
+        lastMounted = i;
+      }
+
+      var numLoaded = 0;
+      imgs.forEach(function (img, i) {
+        var image = new Image();
+
+        image.onload = function() {
+          numLoaded++;
+          if (numLoaded === imgs.length) {
+            clearLoader();
+          }
+
+          mountImage(image, i);
+        }
+
+        image.alt = titles[i];
+        image.src = imgPath(img);
+      });
+    </script>
   </body>
 </html>
