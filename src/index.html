@@ -31,15 +31,16 @@
     </div>
     <div id="image-container"></div>
     <script>
-      // loader
-
+      // loader: an ellipsis with some glyphs
       var loaderContainer = document.getElementById('loader-container');
       var loader = document.getElementById('loader');
       var count = document.getElementById('count');
+
       var glyphs = [
         "\u03D2", "\262", "\253", "\254", "\272", "\u03A8", "\273", "\261",
         "\260", "\263", "\320", "\246", "\u03D1", "\244", "\277", "\u039e"
       ];
+
       var glyphCount = 0;
       var cancelLoaderId = setInterval(function() {
         // . -> .. -> ... -> .
@@ -57,8 +58,7 @@
         document.getElementsByTagName('body')[0].removeChild(loaderContainer);
       }
 
-      // images
-
+      // images: load each image and mount it to the DOM in order of index
       var imgs = [
         'halloween', 'dna', 'sorrow_and_consulation', 'septagram',
         'agent_of_nature', 'man', 'frontier_mycologist', 'monday'
@@ -73,11 +73,7 @@
 
       var imageContainer = document.getElementById('image-container');
 
-      // load each image and mount it to the DOM in order of index
-
       var lastMounted = -1;
-      var images = {};
-
       function mountImage(image, i) {
         if (lastMounted < i - 1) {
           // try again later
@@ -89,8 +85,12 @@
         lastMounted = i;
       }
 
+      // after each image has loaded, mount it to the DOM.
+      // once all images have loaded, clear the loader view.
       var numLoaded = 0;
-      imgs.forEach(function (img, i) {
+      imgs.forEach(function(img, i) {
+        var img = imgs[i];
+
         var image = new Image();
 
         image.onload = function() {
