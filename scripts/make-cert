@@ -1,0 +1,39 @@
+#!/bin/bash
+
+function usage() {
+  cat <<EOM
+  Usage:
+  make-cert -a <AWS_ACCESS_KEY_ID> -s <AWS_SECRET_ACCESS_KEY> -d <CLOUDFRONT_DISTRIBUTION_ID>
+
+  Makes SSL certificates for caleb-gregory.com
+EOM
+}
+
+access_key=
+secret_key=
+distribution_id=
+
+while ["$1" != ""]; do
+  case $1 in
+    -a | --access_key )     shift
+                            access_key=$1
+                            ;;
+    -s | --secret_key )     shift
+                            secret_key=$1
+                            ;;
+    -d | --distribution_id) shift
+                            distribution_id=$1
+                            ;;
+    * )                     usage
+                            exit
+                            ;;
+  esac
+done
+
+sudo AWS_ACCESS_KEY_ID=$access_key \
+AWS_SECRET_ACCESS_KEY=$secret_key \
+letsencrypt --agree-tos -a letsencrypt-s3front:auth \
+  -i letsencrypt-s3front:installer \
+  --letsencrypt-s3front:auth-s3-bucket caleb-gregory.com \
+  --letsencrypt-s3front:auth-s3-region us-east-1 \
+  --letsencrypt-s3front:installer-cf-distribution-id $distribution_id -d caleb-gregory.com
