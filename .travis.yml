@@ -18,10 +18,12 @@ jobs:
       install: true
       before_install:
         # install Dockerized awscli
-        - pip install awscli
+        - pip install --user awscli
         - export PATH=$PATH:$HOME/.local/bin
       if: branch = master AND type IN (push)
       script:
         - ls -la
       after_success:
         - aws s3 sync ./src s3://$S3_BUCKET --acl public-read --cache-control "max-age=86400"
+notifications:
+  email: false
