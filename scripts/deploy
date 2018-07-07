@@ -8,5 +8,4 @@ S3_BUCKET="$1"
 
 cd /app
 
-# Put build/ on S3
 aws s3 sync ./src s3://$S3_BUCKET --acl public-read --cache-control "max-age=86400"
