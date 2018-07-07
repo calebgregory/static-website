@@ -1,23 +1,27 @@
 sudo: required
 services:
-- docker
+  - docker
 language: node_js
 env:
-  matrix:
-  - secure: JduyyyQepKVegRh4JF6JbuhCYomoIsWmDRU70Is++SOsGp9FVuVjtak89cRRHH+va4Yn2DB7p1PvaYKO/snJU2a6mycahMPGoIUohfVP5re/92IS5IQ7Ttb7Lh6V1n1QMuWtcGB13VAd/1dNT5RG2CeZPF4W0zUMVavCvtXoxllxNll8nms/7GJgJwKloJM99QNdygHrkVrMhe7vsT/6FlEbpeqbxLEC3nSV1pP9I4wzDUdxdHL2T5nan/8R/XWBCf/Vay/qX88fhZcAdDj+i8d6K1vA1XkFWOA2NeQRKnqwFHU4AoXUTo1OSs8nrCXD3p7R+G+XnrrNJyz3ZicgkG/OgaA1zPo0eITmff+FSQ6g3pehlp1cYuXLEprFNEGmaBMU+sbFkJCU55+iw/APCfm/RaID14fXJCcch/KMId+ynf4KLon0MSPmPovNVWxiBhBjk/TBJh7FboPZELTxRersXuipMim4YZjuem19tDNhYKGYhnswGB3jwOpPaiiy5K0Yiyj1erwcAGLqwkxY0JAPctU/lWcTzytbG4EnuCfD2b/k1mIui50QiN+QEUYhhZZXD8vsXCK3bI9MwtHNzNYPHBq9Uz59nJ5gRqyKGOHuqSfabHNj8Q7X6VLQ0RffMZ1B2c3R/wqfUD37H/n2lqrUfZtBg9Q9Rk9e+j+6RNQ=
-  - secure: CgHW30J26t6DFnOtX4LxCARdP3Wd9HCcjOXEnWIDLj4F0XGFv905IlImY/xwRjxk00l2bUSwyFzHOoKhb94WxnLEHTK3CgBP7mZZ5bObLr8Dg4p1PEhdeMgDCYj++gbbEO74nWP1eLTJUlAr9o7hmyRdGVgogItTRW5m3O8NW7V00rRc9eZYpzI8am59f63u2HKL9o3IvRg+dgg2W3y66DUd8Ke2CgONWpEkt5MG7b500cdSItZH5qzKbAxQHBsauYKZB6JUOxX20PKikSiOibPopFH2LQoGpdnSF+GUAjxLCg99sqi58mcJJc8LhiHh6cOoLnpMPvXMu3uuxAyKYXStj/xdXIHRtvNh+3FbpJ8TdZW2Hj+NE96n6+xycIj4GrqIvRVPNYAyxvMCjg+iZoPRqjsE7oLOhQPSxPpJn8O2P3UndYn3TODWP6TWJjKn1ztNHlLKNTie5kBjuxXprSyoOgVMBlP82S5ZQwLg1FtDtfD2HMpj7beDgh8PH7aARijmLG7YVKMzpPp1/tZ0cWv+lM8HMWr4B/BxrwI26KyQUhqcuhDRuFuB2SWKGryJJMH0HV5AxQsbqF0AtBYivslwZT/YI7oeGfzTVjC43TKcovvNG6bNAqhjSqkN2uyX9Ze6DyYgb4e4EaUayXt2iYSImYF340bNPkWu22CR9Pk=
-  - secure: L71IvHrrJVVZnM1w99dLc16yzxgSCio8vJGzl9oTqmrKlP+/LZ4gizLoicJnXWj4/WSFBqXv9GUTybFBgHPGubm2wicXrNPG6N81lchpEtiB/lCC5UQ2i6kh0jk7/04mVEpgQaHpBUifeSlWzNJZRruGDqw0sPegN/JGnRIVb4vErFFUY2iYUm8zMNzclWRunTUUGaC4ftcCB7G5kEZRTieeGxUV1lvQ39i4zhE06eqHxFo+M2idIrpHD9g01fX5K2uNNytQq4CtZHfDYNIVXKb1GAi3ReR3c/P2C4A+2sRUPr/Z/lsGuVQZrbKwnaTyoDxrxpKLuYrsc+j9lLM11LggHdVidjNYPgrfbSk+61wSH0/B5Tb1CSwHGX0O2lv/5++pDZITCtmjj9BAkzITdb/4oT08d3jPCfJb/N38W0bDEcvRFDH1G5wqGjZOVJLUzEc3z6qLBQPRtNijNzTc38GCV4ATxXMSiPul6X7OdSQ6BxYrsNasnamivHIn8dBW6nmCfruh9xFcbHjjClGd6SO8Ag8P+MXZNvRw5WMzlVidaFmVHFck8UVjApTWStCDgHZ4GfzHRYQCgqn1uoaKCg7oO2xHzLKTld55KtmyimgTJNt/+wtcjx7V/0mCITyH4iR70lhammvRasXes34F/WD0Xr0HAZFd5zdvkc2oPKQ=
-  - AWS_DEFAULT_REGION=us-east-1
-install: true
+  global:
+    - secure: JduyyyQepKVegRh4JF6JbuhCYomoIsWmDRU70Is++SOsGp9FVuVjtak89cRRHH+va4Yn2DB7p1PvaYKO/snJU2a6mycahMPGoIUohfVP5re/92IS5IQ7Ttb7Lh6V1n1QMuWtcGB13VAd/1dNT5RG2CeZPF4W0zUMVavCvtXoxllxNll8nms/7GJgJwKloJM99QNdygHrkVrMhe7vsT/6FlEbpeqbxLEC3nSV1pP9I4wzDUdxdHL2T5nan/8R/XWBCf/Vay/qX88fhZcAdDj+i8d6K1vA1XkFWOA2NeQRKnqwFHU4AoXUTo1OSs8nrCXD3p7R+G+XnrrNJyz3ZicgkG/OgaA1zPo0eITmff+FSQ6g3pehlp1cYuXLEprFNEGmaBMU+sbFkJCU55+iw/APCfm/RaID14fXJCcch/KMId+ynf4KLon0MSPmPovNVWxiBhBjk/TBJh7FboPZELTxRersXuipMim4YZjuem19tDNhYKGYhnswGB3jwOpPaiiy5K0Yiyj1erwcAGLqwkxY0JAPctU/lWcTzytbG4EnuCfD2b/k1mIui50QiN+QEUYhhZZXD8vsXCK3bI9MwtHNzNYPHBq9Uz59nJ5gRqyKGOHuqSfabHNj8Q7X6VLQ0RffMZ1B2c3R/wqfUD37H/n2lqrUfZtBg9Q9Rk9e+j+6RNQ=
+    - secure: CgHW30J26t6DFnOtX4LxCARdP3Wd9HCcjOXEnWIDLj4F0XGFv905IlImY/xwRjxk00l2bUSwyFzHOoKhb94WxnLEHTK3CgBP7mZZ5bObLr8Dg4p1PEhdeMgDCYj++gbbEO74nWP1eLTJUlAr9o7hmyRdGVgogItTRW5m3O8NW7V00rRc9eZYpzI8am59f63u2HKL9o3IvRg+dgg2W3y66DUd8Ke2CgONWpEkt5MG7b500cdSItZH5qzKbAxQHBsauYKZB6JUOxX20PKikSiOibPopFH2LQoGpdnSF+GUAjxLCg99sqi58mcJJc8LhiHh6cOoLnpMPvXMu3uuxAyKYXStj/xdXIHRtvNh+3FbpJ8TdZW2Hj+NE96n6+xycIj4GrqIvRVPNYAyxvMCjg+iZoPRqjsE7oLOhQPSxPpJn8O2P3UndYn3TODWP6TWJjKn1ztNHlLKNTie5kBjuxXprSyoOgVMBlP82S5ZQwLg1FtDtfD2HMpj7beDgh8PH7aARijmLG7YVKMzpPp1/tZ0cWv+lM8HMWr4B/BxrwI26KyQUhqcuhDRuFuB2SWKGryJJMH0HV5AxQsbqF0AtBYivslwZT/YI7oeGfzTVjC43TKcovvNG6bNAqhjSqkN2uyX9Ze6DyYgb4e4EaUayXt2iYSImYF340bNPkWu22CR9Pk=
+    - secure: L71IvHrrJVVZnM1w99dLc16yzxgSCio8vJGzl9oTqmrKlP+/LZ4gizLoicJnXWj4/WSFBqXv9GUTybFBgHPGubm2wicXrNPG6N81lchpEtiB/lCC5UQ2i6kh0jk7/04mVEpgQaHpBUifeSlWzNJZRruGDqw0sPegN/JGnRIVb4vErFFUY2iYUm8zMNzclWRunTUUGaC4ftcCB7G5kEZRTieeGxUV1lvQ39i4zhE06eqHxFo+M2idIrpHD9g01fX5K2uNNytQq4CtZHfDYNIVXKb1GAi3ReR3c/P2C4A+2sRUPr/Z/lsGuVQZrbKwnaTyoDxrxpKLuYrsc+j9lLM11LggHdVidjNYPgrfbSk+61wSH0/B5Tb1CSwHGX0O2lv/5++pDZITCtmjj9BAkzITdb/4oT08d3jPCfJb/N38W0bDEcvRFDH1G5wqGjZOVJLUzEc3z6qLBQPRtNijNzTc38GCV4ATxXMSiPul6X7OdSQ6BxYrsNasnamivHIn8dBW6nmCfruh9xFcbHjjClGd6SO8Ag8P+MXZNvRw5WMzlVidaFmVHFck8UVjApTWStCDgHZ4GfzHRYQCgqn1uoaKCg7oO2xHzLKTld55KtmyimgTJNt/+wtcjx7V/0mCITyH4iR70lhammvRasXes34F/WD0Xr0HAZFd5zdvkc2oPKQ=
+    - AWS_DEFAULT_REGION=us-east-1
 jobs:
   include:
-  - stage: deploy
-    install: true
-    before_install:
-    # install Dockerized awscli
-    - alias aws='docker run --rm -t $(tty &>/dev/null && echo "-i") -e "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}" -e "AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}" -e "AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}" -v "$(pwd):/project" mesosphere/aws-cli'
-    if: branch = master AND type IN (push)
-    script:
-    - ls -la
-    after_success:
-    - aws s3 sync ./src s3://$S3_BUCKET --acl public-read --cache-control "max-age=86400"
+    - stage: test
+      install: true
+      script:
+        - echo "Don't need to test right now"
+    - stage: deploy
+      install: true
+      before_install:
+        # install Dockerized awscli
+        - pip install awscli
+        - export PATH=$PATH:$HOME/.local/bin
+      if: branch = master AND type IN (push)
+      script:
+        - ls -la
+      after_success:
+        - aws s3 sync ./src s3://$S3_BUCKET --acl public-read --cache-control "max-age=86400"
